@@ -8,9 +8,9 @@ export const ContactsPage = (props) => {
   Define state variables for 
   contact info and duplicate check
   */
-  const [name, setName] = useState('');
-  const [number, setNumber] = useState('');
-  const [email, setEmail] = useState('');
+  const [name, setName] = useState('name');
+  const [number, setNumber] = useState('contact number');
+  const [email, setEmail] = useState('email');
   const [duplicate, setDuplicate] = useState(false);
 
   const handleSubmit = (e) => {
@@ -41,7 +41,7 @@ export const ContactsPage = (props) => {
         console.log('name is a duplicate')
       }
     })
-  }, [name])
+  }, [props.contacts, name])
 
   return (
     <div>

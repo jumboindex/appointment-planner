@@ -5,10 +5,7 @@ import { AppointmentsPage } from "./containers/appointmentsPage/AppointmentsPage
 import { ContactsPage } from "./containers/contactsPage/ContactsPage";
 
 function App() {
-  /*
-  Define state variables for 
-  contacts and appointments 
-  */
+
    const [ contacts, setContacts ] = useState([]);
    
    const updateContacts = (name, phoneNumber, email) => {
@@ -41,11 +38,6 @@ function App() {
     APPOINTMENTS: "/appointments",
   };
 
-  /*
-  Implement functions to add data to
-  contacts and appointments
-  */
-
   return (
     <>
       <nav>
@@ -67,7 +59,7 @@ function App() {
           </Route>
           <Route path={ROUTES.APPOINTMENTS}>
             {/* Add props to AppointmentsPage */}
-            <AppointmentsPage appointment={appointments} updateAppointments={updateAppointments} />
+            <AppointmentsPage appointments={appointments} updateAppointments={updateAppointments} contacts={contacts} />
           </Route>
         </Switch>
       </main>

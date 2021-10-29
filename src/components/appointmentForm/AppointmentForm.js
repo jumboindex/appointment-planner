@@ -1,10 +1,10 @@
 import React from "react";
+import { ContactPicker } from "../contactPicker/ContactPicker";
 
 export const AppointmentForm = ({
   contacts,
   title,
   setTitle,
-  contact,
   setContact,
   date,
   setDate,
@@ -20,6 +20,12 @@ export const AppointmentForm = ({
   };
 
   return (
-    AppointmentForm
+    <form onSubmit={handleSubmit}>
+      <input type='text' value={title} onChange={e => setTitle(e.target.value)}></input>
+      <input type='date' value={date} min={getTodayString()} onChange={e => setDate(e.target.value)}></input>
+      <input type='time' value={time} onChange={e => setTime(e.target.value)}></input>
+      <ContactPicker contactList={contacts} handleChange={e => setContact(e.target.value)} />
+      <input type='submit'></input>
+    </form>
   );
 };
